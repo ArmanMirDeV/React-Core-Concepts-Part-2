@@ -1,5 +1,6 @@
 
 import './App.css'
+import Counter from './Counter'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
     <>
 
       <h3>Vite + React</h3>
+      <Counter></Counter>
 
       {/* <button onClick="handleClick()" >Click Me.</button> */}
 
