@@ -7,6 +7,12 @@ import Users from './Users'
 import Friends from './Friends'
 import { Suspense } from 'react'
 import Posts from './Posts'
+import Players from './Players'
+
+
+
+
+
 
 
 
@@ -22,6 +28,14 @@ const fetchPost = async() => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts")
   return res.json()
 }
+
+
+
+
+
+
+
+
 
 
 function App() {
@@ -45,6 +59,10 @@ function App() {
     <>
 
       <h3>Vite + React</h3>
+
+      <Players></Players>
+
+
 
       <Suspense fallback={<h4>Posts are coming.</h4>}>
         <Posts postPromise={postPromise} ></Posts>
