@@ -6,6 +6,7 @@ import Bowler from './Bowler'
 import Users from './Users'
 import Friends from './Friends'
 import { Suspense } from 'react'
+import Posts from './Posts'
 
 
 
@@ -17,9 +18,15 @@ const fetchFriends = async() => {
 }
 
 
+const fetchPost = async() => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts")
+  return res.json()
+}
+
 
 function App() {
 
+  const postPromise = fetchPost()
   const friendsPromise = fetchFriends();
 
   function handleClick() {
@@ -38,6 +45,10 @@ function App() {
     <>
 
       <h3>Vite + React</h3>
+
+      <Suspense fallback={<h4>Posts are coming.</h4>}>
+        <Posts postPromise={postPromise} ></Posts>
+      </Suspense>
 
       <Suspense fallback={<h3>Loading...</h3>} >
         <Users fetchUsers={fetchUsers} > </Users>
